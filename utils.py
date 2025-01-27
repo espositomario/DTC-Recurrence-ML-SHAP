@@ -23,6 +23,33 @@ import pickle
 from sklearn.metrics import auc
 from matplotlib.cm import get_cmap
 
+
+#################################################
+SMALL_SIZE = 14
+MEDIUM_SIZE = 16
+BIGGER_SIZE = 18
+#
+plt.rc('font', size=SMALL_SIZE)          # controls default text sizes
+plt.rc('axes', titlesize=BIGGER_SIZE)     # fontsize of the axes title
+plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
+plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
+# Define the colors for the plots
+BACKGROUND_COL = '#F2F2F2'
+AXIS_COLOR     = '#BEBEBE' 
+LINES_COLOR    = '#BEBEBE'
+sns.set_style("whitegrid", {'grid.linestyle': '--',
+                            'grid.color': LINES_COLOR,
+                            'axes.edgecolor': AXIS_COLOR,
+                            'axes.facecolor':BACKGROUND_COL,
+                            'figure.facecolor':BACKGROUND_COL,
+                            })
+plt.rcParams['axes.facecolor'] = BACKGROUND_COL
+#################################################
+
 def map_feature_to_colors(feature, palette="Set2"):
     """
     Map feature values to colors using a specified categorical palette.
