@@ -5,7 +5,23 @@ import pandas as pd # 2.2.2
 import os
 import pickle
 import shap as shap
-
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, LabelEncoder, MinMaxScaler
+from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import  matthews_corrcoef,precision_score,recall_score, roc_auc_score, roc_curve, precision_recall_curve, average_precision_score
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neural_network import MLPClassifier
+from xgboost import XGBClassifier
+from scipy.stats import loguniform, uniform
+from sklearn.metrics import precision_score, recall_score, f1_score
+import os
+import pickle
+from sklearn.metrics import auc
+from matplotlib.cm import get_cmap
 
 def map_feature_to_colors(feature, palette="Set2"):
     """
