@@ -1,59 +1,61 @@
-# Test mimmi
+# Differentiated Thyroid Cancer (DTC) Recurrence Prediction and SHAP Analysis
 
-l
-## mimmi branch
-hahaha
+### Authors
 
-## ire
-mimmi tvb
+[Irene D'Onofrio](https://github.com/irenedonofrio) and [Mario Esposito](https://github.com/espositomario)
 
+**Aim**: This project provides a robust benchmarking of machine learning models for predicting differentiated thyroid cancer (DTC) recurrence, using nested cross-validation (nCV) for evaluation and SHAP analysis for interpretation.
 
-pip install git+https://github.com/helias/shap.git@support-adaboost
+**Methods**: Models tested included Support Vector Machine, XGBoost, Random Forest, Decision Trees, Logistic Regression, and Multi-Layer Perceptron, evaluated using a stratified 5-fold outer nCV with a 3-fold inner loop for hyperparameter tuning. SHAP analysis was applied to the best-performing model (SVM) to assess feature importance and explain predictions.
 
+**Results**: SVM, XGBoost, and RF showed the strongest generalization, with SVM achieving the highest average MCC of 0.91 ± 0.04. SHAP analysis identified "Response" as the most influential feature (followed by others), and provided insight into misclassified cases.
 
+### DTC Dataset
 
+UC Irvine Machine Learning Repository: [DTC Dataset](https://archive.ics.uci.edu/dataset/915/differentiated+thyroid+cancer+recurrence)
 
-
-https://link.springer.com/article/10.1007/s00405-023-08299-w#Sec2 #dataset paper
-- UCI data n=383
-- feature selection
-- high scores
-- hp tuning?
-
-https://www.mdpi.com/2673-9585/4/4/29
-- UCI data n=383
-- SMOTE over-smpling
-- HP tuning on test set?
-- Very high scores 
-
-
-https://arxiv.org/abs/2410.10907
-- UCI data n=383
-- DeepNN
-- 80-20
-- high scores
-- LIME and Morris XAI
-- no HP tuning
-
-https://bmccancer.biomedcentral.com/articles/10.1186/s12885-024-12146-4
-- china datset ~2000
-- low scores
-- different features
-  
-
-https://www.nature.com/articles/s41598-021-84504-2#Sec2
-- other data ~1000
-- low scores
-- no HP tuning
+- **Donated:** 10/30/2023
+- **Description:** 13 clinicopathologic features collected over 15 years, with a minimum 10-year follow-up per patient.
+- **Dataset Characteristics:** Tabular
+- **Primary Task:** Binary Classification
+- **Target label**: Recurred/Not Recurred
+- **Instances:** 383
+- **Suggested split**: No
+- **Features:** Age, Gender, Smoking, Hx Smoking, Hx Radiotherapy,
+Thyroid Function, Physical Examination, Adenopathy, Pathology,
+Focality, Risk, T, N, M, Stage, Response
+- **Reference**: [Springer Link](https://link.springer.com/article/10.1007/s00405-023-08299-w#Sec2)
 
 
 
-https://www.mdpi.com/2079-9292/10/16/1973 #greed search
 
 
 
-https://medium.com/@emilykmarsh/xgboost-feature-importance-233ee27c33a4 Why SHAP on XGBoost?
+### Jupyter notebook Table of Contents
+- Exploratory Data Analysis  
+  - Data downloading  
+  - Order categories (Ordinal features)  
+  - Plot Features Distributions  
+  - Plot Feature Distributions stratified per classes (Recurred / Not Recurred)  
+  - Feature Encoding  
+- Nested Cross-Validation (nCV)  
+  - Models hyperparameters space  
+  - Stratified 5-fold nCV (3-fold inner CV)  
+  - Save or Import existing nCV_results  
+  - Compare models metrics on testing  
+    - MCC, ROC AUC and PRC AUC  
+    - ROC and PRC curves  
+- SHAP analysis on SVM  
+  - SHAP on testing data (loop in the outer CV)  
+  - Save or Import existing results  
+  - SHAP Visualization  
+    - Global feature importance  
+    - SHAP values per features (sample-wise)  
+    - Feature values effect on prediction (sorted by average feature importance)  
+  - Misclassified samples  
 
+### Other Studies Using the Same Dataset
 
-https://www.sciencedirect.com/science/article/abs/pii/S0957417421006540 Why nested Cv is overzealus
-
+1. [MDPI Paper](https://www.mdpi.com/2673-9585/4/4/29)
+2. [arXiv Paper](https://arxiv.org/abs/2410.10907)
+3. [Springer Link](https://link.springer.com/article/10.1007/s00405-023-08299-w#Sec2)
