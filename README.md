@@ -1,8 +1,7 @@
 # Differentiated Thyroid Cancer (DTC) Recurrence Prediction and SHAP Analysis
 
-### Authors
 
-[Irene D'Onofrio](https://github.com/irenedonofrio) and [Mario Esposito](https://github.com/espositomario)
+**Authors**: [Irene D'Onofrio](https://github.com/irenedonofrio) and [Mario Esposito](https://github.com/espositomario)
 
 **Aim**: This project provides a robust benchmarking of machine learning models for predicting differentiated thyroid cancer (DTC) recurrence, using nested cross-validation (nCV) for evaluation and SHAP analysis for interpretation.
 
